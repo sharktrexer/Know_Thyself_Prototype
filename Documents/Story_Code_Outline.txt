@@ -1,0 +1,62 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Scenarios~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Scenarios contains a description and different options for the user to make. 
+Sometimes the options are hidden unless a previous and specific option was chosen (determined by a tag string).
+Sometimes the options aren't displayed and only used to push the user to the next scenario, which could be conditional.
+The end scenario will have null options. Where else is there to go?
+Final scenario in the Scenario list will be a tie breaker to make sure the user gets a resulting alignment.
+
+				For any scenario, this is the basic template. If transitional, only transitional options can be used.
+new Scenario(
+			"scenario_id_string", 
+			"description_string", 
+			Arrays.asList(
+					
+					new Option(
+							etc...
+							),
+					new etc...
+					)
+			), 
+			
+			For end scenario. There isn't anywhere else to go!
+new Scenario(
+			"scenario_id_string", 
+			"description_string", 
+			null
+			), 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Options~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+			For an option that requires more specific options in the next scenario
+new Option(
+		"description_string",
+		"scenario_pointer_string"
+		),
+		
+			For a standard option that alters the user's alignment and may or may not provide tags for the story to change by later on
+new Option(
+		"description_string",
+		"scenario_pointer_string",
+		Arrays.asList("tag_string1", "tag_string2", ... "tag_string_n") OR null if no tags necessary,
+		"alignment_string",
+		"direct_result_description_string"
+		),
+		
+			Similar to above, though the option will only appear if the user possesses the correct tag(s)
+new Option(
+		"description_string",
+		"scenario_pointer_string",
+		Arrays.asList("tag_string1", "tag_string2", ... "tag_string_n") OR null if no tags necessary,
+		"alignment_string",
+		Arrays.asList("required_tag_string1", "req_tag_string2", ... "req_tag_string_n"),
+		"direct_result_description_string"
+		),
+			Used for transition scenarios that 
+			1) only serve as story and don't require user input 
+			2) Ditto but branch into different scenarios based on user choices
+			List can't be null otherwise compiler thinks (null, String) could also count as the first construtor.
+			Is detected as "transitional" by the controller through checking if their description_string == ""
+new Option(
+		Arrays.asList("required_tag_string1", "req_tag_string2", ... "req_tag_string_n") OR Array.asList() if no required tags,
+		"scenario_pointer_string"
+		),

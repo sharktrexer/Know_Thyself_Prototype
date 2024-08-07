@@ -1,0 +1,199 @@
+This is pseudo code I wrote to help my project creation along without the nuisance of syntax errors. 
+Do note that what appears here may not line up with what I have actually coded, as this is more of a rough outline to get out my technical
+ideas. I highly recommend doing this when starting a new project!
+
+Class Scenario
+
+	String id (id starts with "t" if it is only used to transition)
+	String desc
+	List Option options (null if end/transition scenario)
+	
+	Constructors:
+	
+	Scenario Scenario(string id, string desc, List Options)
+	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Class Option
+	String desc
+	String pointsToID (what scenario, by id, the option will take the player to)
+	List String tags
+	String alignment (empty if parent option)
+	List String tagsRequired (null when not conditional)
+	String resultDesc (empty if parent option)
+	
+	Constructors:
+	
+	options(string desc, String pointsToID, List String tags)
+		Automatically sets tagsRequired, resultDesc  and alignment to default values (null & empty)
+		This is for options that only lead to more specific options, or "child" options
+		
+	options(string desc, String pointsToID, List String tags, String align, String resultdesc)
+		For an option without a condition
+		
+	options(string desc, String pointsToID, List String tags, String align, List String tagsRequired, String resultdesc)
+		For a standard option
+	
+	options(String pointstoID, List String tagsRequired)
+		for an option only used for pointing to the next scene conditionally
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+Class Controller
+
+	String List userChoiceTags
+		Adds tags collected from chosen options. Also scene ids to keep track of what has been accomplished so far.
+		
+	hashmap alignmentChart
+	
+	
+	main
+		populateChart()
+		
+		PlayScenario(Scenario Builder.copStory) (first story is hard coded. this can be expanded later)
+		
+	Assign string label representing an alignment to an int value.
+	|
+	private void PopulateChart
+		alignmentChart clear
+		.put("LG", 0);
+		.put("NG", 0);
+		.put("CG", 0);
+		.put("LN", 0);
+		.put("TN", 0);
+		.put("CN", 0);
+		.put("LE", 0);
+		.put("NE", 0);
+		.put("CE", 0);
+	
+	Uses string align to determine which part of the alignment chart gets the increment in points. Success: return 1 else -1
+	|
+	int func IncrementAlignment( String align, HashMap chart)
+	
+		if chart.containsKey(align):
+			int newVal = chart.get(align) + 1
+			chart.put(align, newVal)
+			
+			check for any ties.
+			if so, add "tied " + align" to userTags
+			
+			if ties disappear, remove "tied  " + align from userTags
+			
+			return 1
+			
+		return -1
+		
+		
+	public void PlayScenario(List<Scenario> scenes)
+		int index  = 0
+		
+		LOOP
+		curScene curS = scenes get (index)
+		curSceneID = curS get id
+		curDesc = curS get desc
+		List String options = curS get Options Desc
+		chosenOption
+		
+		display scene info
+		
+		if not a transition scene:
+			display each option info but only if necessary tags have been met
+				int listNum
+				for each option
+					listNum++
+					if op.tagsRequired != null
+						for each op.condition, check if userChoiceTags contains the condition
+						otherwise, continue on option for-each
+					print listNum + ". " + op.desc
+			Get player input (accepts 1-options List length)
+			fix input to 0 index based (-1)
+			check if input is valid
+			chosenOption = optionsList get (input)
+			
+			If option has alignment, call incrementAlignment
+			userCHoiceTags add optionTag
+			
+			if option has result, get option resultDesc to print. wait for user to continue
+		else
+			for each option in optionsList
+				does userChoiceTags have the tags equal to the option.tags required
+				chosenOption = option		
+			if option = null, something has gone wrong. Scenario was built incorrectly!
+			wait for player input (can be anything, just here to give user time to read)
+		
+		get chosenPption pointsToID
+		
+		search for next scene with id in array that equals pointsToID, starting from current index (will always be further in the list)
+		if id cannot be found, 
+			check if 
+		
+		index = the index of that scene
+		end loop
+	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+Class ScenarioBuilder
+
+	Contains all scenarios in a list for the controller to work off of.
+	
+	static List<Scenario> copStory = new Scenario( "1",
+		"You are a cop and witness Someone who finished jaywalking across a road. What do you do?",
+		new List<options>(
+			new Option("ignore",
+			"1a",
+			List<string>("ignore1")),
+			
+			new Option("Approach",
+			"1b",
+			List<string>("approach1")),
+			
+			new Option("Yell at them",
+			"1c",
+			List<string>("yell1"))
+			)
+			
+	Scenario s1A = new Scenario( "1a",
+		"You ignore and: ",
+		"1",
+		List<string>("ignore1"),
+		null,
+		new List<options>(
+			new Option("Go on your way",
+			"2",
+			List<string>("inaction1", "unpunished"),
+			"TN",
+			"You pretend like you saw nothing and decide to head back to the office."),
+			
+			new Option("Go get your Rookie partner to do it ",
+			"2",
+			List<string>("deflection1", "punished"),
+			"NE",
+			"You fetch your rookie ordering some donuts to go deal with the jaywalker. While he does, you enjoy a delicious snack."),
+			
+			new Option("Call in a fake crime to cover for your ignorance",
+			"2",
+			List<string>("lie1", "unpunished"),
+			"CE"),
+	
+	Scenario ts1to2 = new Scenario("2t",
+		"Satisfied with the way you dealt with the situation, you head back to the Office to do paperwork. 
+		However, after a couple minutes the Chief calls you in for an important conversation. 
+		He apparently was fully aware of this jaywalker and has something to say…",
+		new List<options>(
+			Option(
+			"2a",
+			List<string>("punished")
+			
+			new Option(
+			"2b:
+			List<string>("unpunished")
+	
+		
+	Scenario s2A = new Scenario("2a",
+		"The Chief says \"I have been made aware about a jaywalker that has aptly dealt with. 
+		Well done, you did a great job! How do you feel?\"",
+		new List<Options>()
+			
+	Scenario s2A = new Scenario("2b",
+		"The Chief says \"I have been made aware about a jaywalker that has gone without punishment. 
+		This is completely unacceptable! You have a duty as a cop, so why did you not uphold the law!?\"",
+		new List<Options>()
+		
+	and forever ETC
