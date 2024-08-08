@@ -9,5 +9,5 @@ public enum Alignment {
 	ChaoticNeutral,
 	LawfulEvil,
 	NeutralEvil,
-	ChaoticEvil
+	ChaoticEvil;
 }

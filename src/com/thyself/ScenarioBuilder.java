@@ -239,8 +239,8 @@ public class ScenarioBuilder {
 			new Scenario(
 					"3a", 
 					"You are dismissed.\n"
-					+ "Feeling a little worried, you decide to spend the rest of the workday on paperwork. "
-					+ "After awhile, you're just about done with your paperwork, and the time to relax is almost in sight!", 
+					+ "Feeling a little worried, you decide to spend the rest of the workday on paperwork. \n"
+					+ "After a while, you're just about done with your paperwork, and the time to relax is almost in sight!", 
 					Arrays.asList(
 							
 							new Option(
