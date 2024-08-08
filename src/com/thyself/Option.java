@@ -10,6 +10,7 @@ public class Option {
 	public Alignment 	alignment;    // What alignment this option increases, if applicable
 	public List<String> tagsRequired; // What tags this options requires the user to have
 	public String 		resultDesc;   // What directly results from the option after picking it
+	public boolean		isShown;      // If option is not meant to purely point to next scene.
 	
 	// Empty option
 	public Option() {
@@ -18,6 +19,7 @@ public class Option {
 		this.alignment 	  =	null;
 		this.tagsRequired = null;
 		this.resultDesc   = "";
+		this.isShown	  = false;
 	}
 	
 	// For a parent option that only leads into child options. Has no tags, alignment, condition, or resulting text
@@ -28,6 +30,7 @@ public class Option {
 		this.alignment    = null;
 		this.tagsRequired = null;
 		this.resultDesc   = "";
+		this.isShown	  = true;
 	}
 	
 	// For a conditional child option. Only appears if user has appropriate tags
@@ -38,6 +41,7 @@ public class Option {
 		this.alignment 	  = alignment;
 		this.tagsRequired = tagsRequired;
 		this.resultDesc   = resultDesc;
+		this.isShown	  = true;
 	}
 	
 	
@@ -49,15 +53,18 @@ public class Option {
 		this.alignment 	  = alignment;
 		this.tagsRequired = null;
 		this.resultDesc   = resultDesc;
+		this.isShown	  = true;
 	}
 	
-	// For a transitional option. It won't be displayed to the user. Params are flipped since tagsRequired is the most important aspect
-	public Option(List<String> tagsRequired, String pointsToID) {
+	// For a transitional option. It won't be displayed to the user, and is thus differentiated from parent option constructor using boolean
+	// otherwise ambiguity error occurs if tagsRequired is null
+	public Option(List<String> tagsRequired, String pointsToID, boolean isShown) {
 		this.desc 		  = "";
 		this.pointsToID   = pointsToID;
 		this.tags 		  = null;
 		this.alignment    = null;
 		this.tagsRequired = tagsRequired;
 		this.resultDesc   = "";
+		this.isShown	  = false;
 	}
 }

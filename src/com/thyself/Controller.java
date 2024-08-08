@@ -29,7 +29,7 @@ public class Controller {
 		PlayScenario(ScenarioBuilder.copStory);
 	}
 	
-	/* Uses int value of Alignment to increment chart score. As
+	/* Uses int value of Alignment enum to increment chart score.
 	 * Success: return 1 else -1 */
 	private static int IncrementAlignment(Alignment align) {
 		
@@ -41,7 +41,7 @@ public class Controller {
 	}
 	
 	// Iterates through chart array to search for ties in values
-	// Adds associated alignment tags to userTags if there are ties. 
+	// Adds associated alignment tie tags to userTags if ties
 	// This will be used to know which of tie breaker scenario options should be available.
 	private static boolean CheckForAlignTies() {
 		
@@ -69,7 +69,6 @@ public class Controller {
 		return true;
 	}
 	
-	// Check if UserTags contains all tags of the passed in list
 	private static boolean DoesUserTagsContains(List<String> tags) {
 		
 		boolean containsAll = true;
@@ -169,21 +168,20 @@ public class Controller {
 					// Transition options, one option is automatically selected, no list required
 					// Get option PointsID where conditions are met, or if there are not conditions
 					// Empty tags on transition option means this is the only option anyway
-					if(op.desc == "" && (op.tagsRequired == null || 
-										 op.tagsRequired.isEmpty() || 
-										 DoesUserTagsContains(op.tagsRequired) )) 
+					boolean conditionsMet = op.tagsRequired == null || DoesUserTagsContains(op.tagsRequired);
+					if(!op.isShown && conditionsMet) 
 					{
 						nextSceneID = op.pointsToID;
 						onlyTransition = true;
 						break;
 					}
-					// Regular options, just add to list if no conditions or conditions are met
-					else if(op.tagsRequired == null || DoesUserTagsContains(op.tagsRequired)){
+					// Regular options
+					else if(conditionsMet){
 						availOptions.add(op);
 					}				
 				}
 			}
-			else { onlyTransition = true; }
+			else { onlyTransition = true; } 
 			
 			// User needs to choose an option, if applicable
 			if(!onlyTransition) {
@@ -244,9 +242,8 @@ public class Controller {
 			// End if the index did not change
 			end = tempInd == index;
 		}
-		// Story ended
 		
-		// Who cares if this throws an error, will this cause problems in the future?
+		// Who cares if this throws an error! 
 		try { in.close(); } catch (IOException e) {}
 		
 		System.out.println("Story ended!\n");

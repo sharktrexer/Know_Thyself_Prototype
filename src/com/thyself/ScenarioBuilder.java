@@ -127,11 +127,13 @@ public class ScenarioBuilder {
 							
 							new Option(
 									Arrays.asList("punished"),
-									"2a"
+									"2a",
+									false
 									),
 							new Option(
 									Arrays.asList("unpunished"),
-									"2b"
+									"2b",
+									false
 									)
 							)
 					),
@@ -242,8 +244,9 @@ public class ScenarioBuilder {
 					Arrays.asList(
 							
 							new Option(
-									Arrays.asList(),
-									"job1"
+									null,
+									"job1",
+									false
 									)
 							)
 					),
@@ -254,8 +257,9 @@ public class ScenarioBuilder {
 					+ "Noticing a cop car driving by, you're saddened at the thought of the donut famine fast approaching.", 
 					Arrays.asList(
 							new Option(
-									Arrays.asList(),
-									"fired1"
+									null,
+									"fired1",
+									false
 									)
 							)
 					),
