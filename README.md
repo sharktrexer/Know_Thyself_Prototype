@@ -11,3 +11,10 @@ _Current Comment:_
 Almost here!!! Just need to finish story details, ensure there aren't any major bugs or text formatting issues, and possibly move story declaration from code into a text file, adding fucntionality to read from the file as well.
 
 Webapp Version [HERE](https://github.com/sharktrexer/Know_Thyself)
+
+### Current example of using the software:
+
+![terminal 1](https://github.com/user-attachments/assets/e16caf2b-c6b7-4ea1-8e65-46649d4f7068)
+![terminal 2](https://github.com/user-attachments/assets/4ae42631-749f-4d42-8555-dbc1ee33d170)
+### After completing the story:
+![terminal 3](https://github.com/user-attachments/assets/f1db5472-4729-4df9-9e61-301890bf8d57)
