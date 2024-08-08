@@ -11,7 +11,7 @@ public class Controller {
 	// Keeps track of the choices made and scenarios experienced
 	static List<String> userTags = new ArrayList<String>();
 			
-	// Keeps track of points earned for each alignment
+	// Keeps track of points earned for each alignment, where the index is represented by the Alignment enum
 	static Integer[] chart = new Integer[] {0,0,0,0,0,0,0,0,0};
 	
 	// String representations of each alignment.
@@ -29,42 +29,14 @@ public class Controller {
 		PlayScenario(ScenarioBuilder.copStory);
 	}
 	
-	/* Uses string align to determine which index of the alignment chart gets the increment in points. 
+	/* Uses int value of Alignment to increment chart score. As
 	 * Success: return 1 else -1 */
-	private static int IncrementAlignment(String align) {
+	private static int IncrementAlignment(Alignment align) {
 		
-		switch(align) {
-		case "LG":
-			chart[0] += chart[0] + 1;
-			break;
-		case "NG":
-			chart[1] += chart[1] + 1;
-			break;
-		case "CG":
-			chart[2] += chart[2] + 1;
-			break;
-		case "LN":
-			chart[3] += chart[3] + 1;
-			break;
-		case "TN":
-			chart[4] += chart[4] + 1;
-			break;
-		case "CN":
-			chart[5] += chart[5] + 1;
-			break;
-		case "LE":
-			chart[6] += chart[6] + 1;
-			break;
-		case "NE":
-			chart[7] += chart[7] + 1;
-			break;
-		case "CE":
-			chart[8] += chart[8] + 1;
-			break;
-		default:
+		if(align == null)
 			return -1;
 		
-		}
+		chart[align.ordinal()]++; 
 		return 1;
 	}
 	
@@ -238,7 +210,7 @@ public class Controller {
 				if(chosenOp.tags != null) 
 					AddTagsToUser(chosenOp.tags);
 				
-				if(chosenOp.alignment != "")
+				if(chosenOp.alignment != null)
 					IncrementAlignment(chosenOp.alignment); // If -1 is returned there is a problem!
 				
 				if(chosenOp.resultDesc != "")
@@ -278,14 +250,11 @@ public class Controller {
 		try { in.close(); } catch (IOException e) {}
 		
 		System.out.println("Story ended!\n");
-		
-		//Reveal alignment results
 		System.out.println("You're alignment is... ");
 		
 		// Get max alignment score
 		int max = 0;
 		int indexOfMaxAlign = 0;
-		//String maxAlign = "";
 		for(int i = 0; i < chart.length; i++) {
 			if(chart[i] > max) {
 				max = chart[i];
@@ -296,6 +265,8 @@ public class Controller {
 		// Print alignment and short descriptor (starting with "This means you ")
 		String playerAlign = alignmentsFull[indexOfMaxAlign];
 		String msg = "";
+		
+		System.out.print(playerAlign + ". This means you ");
 		
 		switch(playerAlign) {
 		case "Lawful Good"    :
@@ -326,8 +297,7 @@ public class Controller {
 			msg = "believe you can get away with anything you want, when you want.";
 			break;
 		}
-		System.out.print(playerAlign);
-		System.out.println(". This means you " + msg);
+		System.out.print(msg);
 		
 	}
 
