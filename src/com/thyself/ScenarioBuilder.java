@@ -82,7 +82,8 @@ public class ScenarioBuilder {
 									"2",
 									Arrays.asList("unpunished"),
 									Alignment.LawfulEvil,
-									"The jaywalker accepts your terms, flashing a dissident look before walking away."
+									"The jaywalker accepts your terms, flashing a dissident look before walking away. "
+									+ "Who cares though? You just made $400!"
 									)
 							)
 					),
@@ -157,7 +158,7 @@ public class ScenarioBuilder {
 									Arrays.asList("wonder"),
 									Alignment.TrueNeutral,
 									"The Chief responds \"I don't pay you to ask stupid questions. "
-									+ "If you want answers then  you should have gone to college. \n"
+									+ "If you want answers then you should have gone to college. \n"
 									+ "But you didn't! You're here at my station, now go do your job before you don't have one!\""
 									),
 							new Option(
