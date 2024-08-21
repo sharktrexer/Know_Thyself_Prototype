@@ -149,7 +149,7 @@ public class Controller {
 					+ "followed by numbered options. \nAll you have to do is enter the number of the option you wish to choose! "
 					+ "\nThen, at the end of the game, you will be given an Alignment that best describes the choices you have made. "
 					+ "\nIf you somehow are a \"well rounded person\", an alignment tie-breaker scenario will be provided to make sure you "
-					+ "get a specific alignment. \nThis is by no means an actual or extremely accurate experience, it is all just for fun! "
+					+ "get a specific alignment. \nThis is by no means an accurate experience, it is all just for fun! "
 					+ "\n\nPlease enter anything to begin.");
 			ValidatePlayerInput(in, 0);
 			
