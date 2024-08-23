@@ -434,21 +434,21 @@ public class ScenarioBuilder {
 									),
 							new Option(
 									"Shoot to injure",
-									"point",
+									"party_end",
 									Arrays.asList(),
 									Alignment.LawfulNeutral,
 									"Without warning you shot the thief, making him fall. You could have handled that better."
 									),
 							new Option(
 									"Shoot to kill",
-									"point",
+									"arrested_end",
 									Arrays.asList(),
 									Alignment.LawfulEvil,
 									"The thief is shot dead. People are appalled yet grateful. You go to jail for manslaughter."
 									),
 							new Option(
 									"Shoot your foot. Now it's a BIG deal.",
-									"point",
+									"home_end",
 									Arrays.asList(),
 									Alignment.ChaoticNeutral,
 									Arrays.asList("questioning"),
@@ -464,28 +464,28 @@ public class ScenarioBuilder {
 							new Option(
 									"Inform them how to best get away, bestowing your cop knowledge. "
 									+ "You're not a cop anymore so who cares?",
-									"point",
+									"home_end",
 									Arrays.asList("tag"),
 									Alignment.ChaoticNeutral,
 									"result" 
 									),
 							new Option(
 									"Heroically catch the thief! ",
-									"point",
+									"party_end",
 									Arrays.asList("tag"),
 									Alignment.LawfulGood,
-									"result"
+									"You got the thief. Party time!!!!!!!!"
 									),
 							new Option(
 									"Incapacitate them and get away with pocketing some of the dough.",
-									"point",
+									"arrested_end",
 									Arrays.asList("tag"),
 									Alignment.NeutralEvil,
 									"result"
 									),
 							new Option(
 									"Converse with them. Surely they have a reason for doing this like that jaywalker could have.",
-									"point",
+									"home_end",
 									Arrays.asList("tag"),
 									Alignment.NeutralGood,
 									Arrays.asList("wonder"),
@@ -500,28 +500,28 @@ public class ScenarioBuilder {
 							
 							new Option(
 									"You don't want to risk your life, you already got suspended today.",
-									"point",
+									"home_end",
 									Arrays.asList("tag"),
 									Alignment.TrueNeutral,
-									"result"
+									"Whatever happens is none of your business after all."
 									),
 							new Option(
 									"Perhaps the thief will use that money better than the original owners would have.",
-									"point",
+									"home_end",
 									Arrays.asList("tag"),
 									Alignment.NeutralGood,
 									"result"
 									),
 							new Option(
 									"You can take the opportunity to call the news and report the incompetence of the police station that suspended you.",
-									"point",
+									"home_end",
 									Arrays.asList("tag"),
 									Alignment.ChaoticEvil,
 									"result"
 									),
 							new Option(
 									"You're blind, you don't see nothing. You dial the number for your local Optometrist and continue on your way home.",
-									"point",
+									"home_end",
 									Arrays.asList("tag"),
 									Alignment.NeutralEvil,
 									Arrays.asList("lie"),
