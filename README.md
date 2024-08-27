@@ -5,7 +5,7 @@ By the end of the story your chosen actions will determine what alignment you fa
 **Will you get the result you think you will?**
 
 - v1.0 Desired Outcome:
-Basic prototype release. User input will be fetched through a terminal and the story will be short. Exe or instuctions to run is provided.
+Basic prototype release. User input will be fetched through a terminal and the story will be short. Jar file provided.
 
 _Current Comment:_
 Almost here! Just need to finish story details and ensure there aren't any major bugs or text formatting issues.
