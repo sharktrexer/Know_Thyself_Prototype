@@ -1,10 +1,10 @@
 This is pseudo code I wrote to help my project creation along without the nuisance of syntax errors. 
 Do note that what appears here may not line up with what I have actually coded, as this is more of a rough outline to get out my technical
-ideas. I highly recommend doing this when starting a new project!
+ideas. Be warned for spelling errors!
 
 Class Scenario
 
-	String id (id starts with "t" if it is only used to transition)
+	String id 
 	String desc
 	List Option options (null if end/transition scenario)
 	
@@ -123,10 +123,91 @@ Class Controller
 		
 		search for next scene with id in array that equals pointsToID, starting from current index (will always be further in the list)
 		if id cannot be found, 
-			check if 
-		
-		index = the index of that scene
+			check if index = the index of that scene
 		end loop
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+Class AccomplishmentTracker
+
+Keeps track of the different endings and secret options the player has experienced.
+
+String Hashmap endings (contains string names of each ending from the story and a value of the title to display)
+String Hashmap specialOptionTags (contains required string tags from special options and a value of the title to display)
+
+String List achievedEndings 
+String List achievedOptions
+String List achievedAligns
+
+	public void printObtainedEndingsRatio()
+		
+		print You have seen [ + achivedEndings.size + / + endings.size + ] total endings.
+		
+		if achievedEndings.size = endings,size
+			print This means you have seen every ending. Congratulations!
+			
+	public void printObtainedOptionsRatio()
+		
+		print You have chosen [ + achivedOptions.size + / + specialOptionTags.size + ] total secret options.
+		
+		if achivedOptions.size = specialOptionTags.size
+			print This means you have chosen every secret option. Well done!
+			
+	public void printObtainedOptionsRatio()
+		
+		print You have acted as [ + achivedAligns.size + / + 9 + ] total alignments.
+		
+		if achivedAligns.size == 9
+			print This means you have acted as every different alignment. How well rounded of you!
+	
+	public void printAllObtainedAchivements() 
+		print Obtained Endings: 
+		
+		for each achievedEndings end
+			print endings.get end
+		
+		print Secret Options found: 
+		
+		for each acheivedOptions op
+			print specialOptionsTags.get op
+			
+		print Obtained Alignments:
+			print achievedAligns
+		
+	public void printPossibleAchievements()
+		print Possible Endins: + endings.values
+		print Possible Secret Options: + SpecialOptionTags.values
+		print Possible Alignments: + Controller.alignmentsFull
+	
+	// achieveType = 1 means it is an ending, 2 means it is an option, 3 means alignment	
+	// returns 1 if success or -1 if failure	
+	public int addAchievement(String achieve, int achieveType)
+		if(achievetype = 1 && endings.key.contains achieve && achievedEndings doesnt contain achieve)
+			achievedEndings.add achieve
+			return 1
+			
+		else if achieveType = 2 && specialOptionsTags key contains achieve && achievedOptions doesn't contain achieve
+			achievedOptions.add achieve
+			return 1
+			
+		else if achieveType == 3 && achievedAlign doesn't contain achieve
+			achievedAlign.add achieve
+			return 1	
+		
+		else 
+			return -1;
+			
+	public void clearProgress()
+		achievedEndings.clear
+		achievedOptions.clear 
+		achievedAligns.clear
+
+Constructors:
+
+	AccomplishmentTracker(List endings, List endingTitles, List options, List optionTitles)
+		this.endings.keys = endings
+		this.endings.values = endingTitles
+		this.specialOptionsTags.keys = options
+		this.specialOptionsTags.values = optionTitles
 	
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 Class ScenarioBuilder

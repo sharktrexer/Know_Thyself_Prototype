@@ -329,7 +329,7 @@ public class ScenarioBuilder {
 									"party_end", 
 									Arrays.asList(),
 									Alignment.LawfulEvil,
-									"You take your remaining paperwork and plop it on a rookie's desk. Already knee deep in paperwork, the rookie sighs."
+									"You take your remaining paperwork and plop it on a rookie's desk. Already knee deep in paperwork, the rookie sighs. \n"
 									+ "You notice a small tear shed from their eye. That's not your problem though!"
 									),
 							new Option(

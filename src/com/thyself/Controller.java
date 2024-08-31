@@ -18,7 +18,7 @@ public class Controller {
 	final static String[] alignments = new String[] {
 			"LG", "NG", "CG", "LN", "TN", "CN", "LE", "NE", "CE" };
 	
-	final static String[] alignmentsFull = new String[] {
+	public final static String[] alignmentsFull = new String[] {
 			"Lawful Good", "Neutral Good", "Chaotic Good", 
 			"Lawful Neutral", "True Neutral", "Chaotic Neutral", 
 			"Lawful Evil", "Neutral Evil", "Chaotic Evil" };
@@ -42,7 +42,7 @@ public class Controller {
 	
 	// Iterates through chart array to search for ties in values
 	// Adds associated alignment tie tags to userTags if ties
-	// This will be used to know which of tie breaker scenario options should be available.
+	// This will be used to know which of tie breaker scenario options should be available at the end of the game.
 	private static boolean CheckForAlignTies() {
 		
 		// Get max alignment score
@@ -71,14 +71,11 @@ public class Controller {
 	
 	private static boolean DoesUserTagsContains(List<String> tags) {
 		
-		boolean containsAll = true;
-		// If ever false, return false, otherwise loop until true can be concluded
 		for(String tag : tags) {
-			containsAll = userTags.contains(tag);
-			if(!containsAll)
-				break;
+			if(!userTags.contains(tag))
+				return false;
 		}
-		return containsAll;
+		return true;
 	}
 	
 	private static void AddTagsToUser(List<String> tags) {
@@ -112,14 +109,21 @@ public class Controller {
 				// Check for debug commands if input is not a number. Still treated as invalid input 
 				String msg = "";
 				switch(line) {
+				
 					case "tags":
 						System.out.println(userTags);
 						msg = "Received tags Debug Command";
 						break;
+						
 					case "align":
-						System.out.println(chart);
+						System.out.println();
+						for(int i = 0; i < chart.length; i++) {
+							System.out.print(alignments[i] + ": " + chart[i] + " ");
+						}
+						System.out.println();
 						msg = "Received alignment Debug Command";
 						break;
+						
 					default:
 						msg = "Invalid Input";
 						break;
@@ -135,7 +139,7 @@ public class Controller {
 			return num;
 		}
 		catch(NumberFormatException | IOException ex) { //Input failed
-			System.out.println("Input Error:\t" + ex.getMessage());
+			System.out.println("Input did not advance story:\t" + ex.getMessage());
 			return -1;
 		}
 	}
@@ -177,14 +181,14 @@ public class Controller {
 				// Print info
 				System.out.println(curScene.getDesc());
 				
-				// In case of null options
+				// No options means end of story has been reached
 				if(curScene.getOptions() != null) {
 					// Fetch options, and check if these are transition options
 					// there SHOULDN'T be any non-transitional options if the first option is
 					for(Option op : curScene.getOptions()) {
 						
 						// Transition options, one option is automatically selected, no list required
-						// Get option PointsID where conditions are met, or if there are not conditions
+						// Get option PointsID where conditions are met, or if there are no conditions
 						// Empty tags on transition option means this is the only option anyway
 						boolean conditionsMet = op.getTagsRequired() == null || DoesUserTagsContains(op.getTagsRequired());
 						if(!op.isShown() && conditionsMet) 
@@ -223,6 +227,10 @@ public class Controller {
 					
 					nextSceneID = chosenOp.getPointsToID();
 					
+					if(chosenOp.getTagsRequired() != null) {
+						
+					}
+					
 					if(chosenOp.getTags() != null) 
 						AddTagsToUser(chosenOp.getTags());
 					
@@ -241,9 +249,9 @@ public class Controller {
 				
 				// Change scenario
 				int tempInd = index;
-				if(nextSceneID != "") {
+				if(!nextSceneID.equals("")) {
 					for(int i = index; i < scenes.size(); i++) {
-						if(scenes.get(i).getId() == nextSceneID) {
+						if(scenes.get(i).getId().equals(nextSceneID)) {
 							index = i;
 							break;
 						}
@@ -265,6 +273,7 @@ public class Controller {
 			//try { in.close(); } catch (IOException e) {}
 			
 			System.out.println("Story ended!\n");
+			
 			System.out.println("You're alignment is... ");
 			
 			// Get max alignment score
@@ -314,9 +323,9 @@ public class Controller {
 			}
 			System.out.print(msg);
 			
-			System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			//System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			
-			System.out.println("\nThanks for playing! :) "
+			System.out.println("\n\nThanks for playing! :) "
 					+ "You may now enter anything to play again or if you are done: type \"exit\" or close the terminal.");
 			ValidatePlayerInput(in, 0);
 			
