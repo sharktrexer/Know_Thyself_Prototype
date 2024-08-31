@@ -57,7 +57,7 @@ new Option(
 			Used for transition scenarios that 
 			1) only serve as story and don't require user input 
 			2) Ditto but branch into different scenarios based on past user choices
-			isShown boolean is always set to false regardless of input, it is only a parameter to differentiate from the standard constructor
+			isShown boolean is always set to false regardless of input, it is only a parameter to differentiate (null, string) from the standard constructor
 new Option(
 		Arrays.asList("required_tag_string1", "req_tag_string2", ... "req_tag_string_n") OR null if no required tags,
 		"scenario_pointer_string",
