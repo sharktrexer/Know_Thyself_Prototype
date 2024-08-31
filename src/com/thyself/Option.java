@@ -4,14 +4,42 @@ import java.util.List;
 
 public class Option {
 	
-	public String 		desc;		  // What the option is
-	public String 		pointsToID;   // What scenario, by id, the option will take the player to
-	public List<String> tags;		  // What tags the user receives upon choosing this option, if applicable
-	public Alignment 	alignment;    // What alignment this option increases, if applicable
-	public List<String> tagsRequired; // What tags this options requires the user to have
-	public String 		resultDesc;   // What directly results from the option after picking it
-	public boolean		isShown;      // If option is not meant to purely point to next scene.
+	private String 		desc;		  // What the option is
+	private String 		pointsToID;   // What scenario, by id, the option will take the player to
+	private List<String> tags;		  // What tags the user receives upon choosing this option, if applicable
+	private Alignment 	alignment;    // What alignment this option increases, if applicable
+	private List<String> tagsRequired; // What tags this options requires the user to have
+	private String 		resultDesc;   // What directly results from the option after picking it
+	private boolean		isShown;      // If option is not meant to purely point to next scene.
 	
+	public String getDesc() {
+		return desc;
+	}
+
+	public String getPointsToID() {
+		return pointsToID;
+	}
+
+	public List<String> getTags() {
+		return tags;
+	}
+
+	public Alignment getAlignment() {
+		return alignment;
+	}
+
+	public List<String> getTagsRequired() {
+		return tagsRequired;
+	}
+
+	public String getResultDesc() {
+		return resultDesc;
+	}
+
+	public boolean isShown() {
+		return isShown;
+	}
+
 	// Empty option
 	public Option() {
 		this.desc 		  = "";

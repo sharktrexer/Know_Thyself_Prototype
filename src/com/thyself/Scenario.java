@@ -4,10 +4,22 @@ import java.util.List;
 
 public class Scenario {
 	
-	public String 		id;	     // Unique name for scenario for options to reference
-	public String 		desc;    // What the scenario is about
-	public List<Option> options; // What options the user can take from this scene
+	private String 		id;	     // Unique name for scenario for options to reference
+	private String 		desc;    // What the scenario is about
+	private List<Option> options; // What options the user can take from this scene
 	
+	public String getId() {
+		return id;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public List<Option> getOptions() {
+		return options;
+	}
+
 	// Empty Scenario
 	public Scenario() {
 		this.id           = "";          

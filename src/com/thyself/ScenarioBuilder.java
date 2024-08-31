@@ -150,7 +150,7 @@ public class ScenarioBuilder {
 									Arrays.asList("rewarded"),
 									Alignment.LawfulNeutral,
 									"The Chief responds \"You should! I'll give you a nice bonus to your next paycheck. "
-									+ "Remember, every ticket you dole out is money keeps the city safer and our pockets fuller!\""
+									+ "Remember, every ticket you dole out is money that keeps the city safer and our pockets fuller!\""
 									),
 							new Option(
 									"\"I wonder why they felt the need to jaywalk…?\"",
@@ -387,7 +387,7 @@ public class ScenarioBuilder {
 							
 							new Option(
 									"\"Why wait until the bar?\" Pull out your \"water\" bottle and offer it.",
-									"party_end", //party
+									"party_end", 
 									Arrays.asList(),
 									Alignment.ChaoticGood,
 									"\"Snagged that from evidence, did ya?\" the coworker smirks, \"Alright, you're driving though.\""
@@ -395,7 +395,7 @@ public class ScenarioBuilder {
 									),
 							new Option(
 									"\"How about we go bust some kids for drug use by the movie theater?\"",
-									"party_end", //party
+									"party_end", 
 									Arrays.asList(),
 									Alignment.ChaoticNeutral,
 									"\"I know which place you're talking about,\" the coworker begins, \"We can do that on the way.\""
@@ -405,7 +405,7 @@ public class ScenarioBuilder {
 									"work_raid_end", 
 									Arrays.asList("raid"), 
 									Alignment.ChaoticEvil,
-									"I'm good. Just don't touch the ham and cheese sandwhich in the door. That one's mine."
+									"\"I'm good.\" the coworker quickly answers. \"Just don't touch the ham and cheese sandwhich in the door. That one's mine.\""
 									),
 							new Option(
 									"\"Ok, but answer this question for me. Why would someone ever jaywalk with cops nearby?\"",
@@ -426,33 +426,43 @@ public class ScenarioBuilder {
 							
 							new Option(
 									"Shoot to warn.",
-									"party_end", // TODO finish pointer
-									Arrays.asList(), // TODO finish result descriptions
+									"party_end_rehire", 
+									Arrays.asList(), 
 									Alignment.ChaoticGood,
 									"As the thief runs out of the building you shoot the sidewalk besides them. "
-									+ "\"Stop or I will shoot you!\" you shout. The thief puts his hands up. Cops show up and you are celebrated!" 
+									+ "\"I don't miss twice!\" you shout, \"You better drop that dough!\" The thief puts his hands up. \n"
+									+ "Some of the cops from your station witness this and bring you back to the Chief to be reinstated.\n"
+									+ "Congrats! you are a cop again. You know what that calls for..." 
 									),
 							new Option(
 									"Shoot to injure",
-									"party_end",
+									"home_end",
 									Arrays.asList(),
 									Alignment.LawfulNeutral,
-									"Without warning you shot the thief, making him fall. You could have handled that better."
+									"Without warning you shoot the thief in the leg, making them collapse, \"OW!\" the thief yells \n"
+									+ "\"You could have told me to stop, I didn't know you had a gun!\" The money flies everywhere, \n"
+									+ "creating a beautiful shower of green. Some of the cops from your station arrive and are a bit upset they have to \n"
+									+ "go around picking up every dollar bill. Amidst the chaos you decide it would be best just to go home..."
 									),
 							new Option(
 									"Shoot to kill",
 									"arrested_end",
 									Arrays.asList(),
 									Alignment.LawfulEvil,
-									"The thief is shot dead. People are appalled yet grateful. You go to jail for manslaughter."
+									"You shoot the thief brutally. As they lay dying, they say \"I was just doing this... to feed my kids...\" \n"
+									+ "People are appalled yet grateful. Some of the cops from your station arrive and quickly put you in cuffs. \n"
+									+ "\"You know you were supposed to turn in your gun when you're suspended right?\" one of the cops say.\n"
+									+ "You are escorted to jail, charged with manslaughter."
 									),
 							new Option(
-									"Shoot your foot. Now it's a BIG deal.",
+									"Shoot the money. Now it's a BIG deal.",
 									"home_end",
 									Arrays.asList(),
 									Alignment.ChaoticNeutral,
-									Arrays.asList("questioning"),
-									"You just shot your foot. Nobody cares."
+									Arrays.asList("no_big_deal"),
+									"The money flies everywhere, now shredded and useless. The thief won't be thieving anything anymore! \n"
+									+ "\"What the hell?!\" the thief shouts. \"You could have just told me to stop. What a waste!\" \n"
+									+ "You decide it would be best to run back home before anyone notices what you did..."
 									)
 							)
 					),
@@ -465,31 +475,47 @@ public class ScenarioBuilder {
 									"Inform them how to best get away, bestowing your cop knowledge. "
 									+ "You're not a cop anymore so who cares?",
 									"home_end",
-									Arrays.asList("tag"),
+									Arrays.asList(),
 									Alignment.ChaoticNeutral,
-									"result" 
+									"You approach the thief letting them know you have some information to share that could benefit them.\n"
+									+ "\"Wow\" the thief remarks, \"Thanks for the intel. Here, have some dough, my treat!\"\n"
+									+ "You pocket the dough and quickly head home to avoid any suspicion. Hopefully nobody saw this take place..." 
 									),
 							new Option(
 									"Heroically catch the thief! ",
-									"party_end",
-									Arrays.asList("tag"),
+									"party_end_rehire",
+									Arrays.asList(),
 									Alignment.LawfulGood,
-									"You got the thief. Party time!!!!!!!!"
+									"You trip the thief as they try passing you. After they fall you launch yourself on top of them to ensure they \n"
+									+ "can't wriggle away. \"Get off of me!\" the thief exclaims. \"You smell!\"\n"
+									+ "Despite the smear campaign on your personal hygiene, you keep the thief in place until cops from your station arrive.\n"
+									+ "After arresting the thief, the cops congratulate you and decide you deserve your job back! They take you \n"
+									+ "to the station as well and convince the Chief to reinstate you as a police officer. Now that you are \n"
+									+ "a cop again, this calls for celebration!"
 									),
 							new Option(
 									"Incapacitate them and get away with pocketing some of the dough.",
 									"arrested_end",
-									Arrays.asList("tag"),
+									Arrays.asList(),
 									Alignment.NeutralEvil,
-									"result"
+									"You swiftly take down the thief with your cop powers and stuff your pockets with as much money as possible.\n"
+									+ "Unfortunately, due to your greed, you take slightly too long and the cops show up on the scene. \n"
+									+ "\"Put your hands up!\" one of the cops shout. \n"
+									+ "\"Oh hey, it's you.\" the other cop interjects. \"Weren't you fired today? The Chief is gonna love to see this.\n"
+									+ "You're going to jail, buddy.\""
 									),
 							new Option(
 									"Converse with them. Surely they have a reason for doing this like that jaywalker could have.",
-									"home_end",
-									Arrays.asList("tag"),
+									"home_ponder_end",
+									Arrays.asList(),
 									Alignment.NeutralGood,
-									Arrays.asList("wonder"),
-									"result"
+									Arrays.asList("questioning"),
+									"You approach the thief, asking if you could have a word with them. The thief responds with a cordial fist in your face.\n"
+									+ "\"Don't you know better than to ask burglars dumb questions while they are burgaling?\" they say with a laugh and run away.\n"
+									+ "A mother and her child witness this interaction. \n"
+									+ "\"Mom?\" the kid asks \"Why did that crying person ask the burglar a question?\"\n"
+									+ "\"Well you see Timmy,\" the mother responds, \"Some people just don't have any common sense.\""
+									+ "With your hurt ego, you decide to run back home \"not crying.\""
 									)
 							)
 					),
@@ -501,62 +527,103 @@ public class ScenarioBuilder {
 							new Option(
 									"You don't want to risk your life, you already got suspended today.",
 									"home_end",
-									Arrays.asList("tag"),
+									Arrays.asList(),
 									Alignment.TrueNeutral,
-									"Whatever happens is none of your business after all."
+									"Whatever happens is none of your business after all. As you walk home you notice a lot of cops cars passing \n"
+									+ "by towards the scene. Glad they are not you!"
 									),
 							new Option(
 									"Perhaps the thief will use that money better than the original owners would have.",
 									"home_end",
-									Arrays.asList("tag"),
+									Arrays.asList(),
 									Alignment.NeutralGood,
-									"result"
+									"You head home, finding a lucky $20 on the sidewalk on your way there! However the thief from earlier finds and stops you.\n"
+									+ "\"Hey!\" they shout. \"That's mine!\"\n"
+									+ "You hand over the bill with a smile, knowing that they will probably spend it better than you would've anyways. \n"
+									+ "You continue on your way, content with your actions."
 									),
 							new Option(
 									"You can take the opportunity to call the news and report the incompetence of the police station that suspended you.",
-									"home_end",
-									Arrays.asList("tag"),
+									"home_news_end",
+									Arrays.asList(),
 									Alignment.ChaoticEvil,
-									"result"
+									"*Click!* \"Hello, this is Sarah from XOF news, what can we do for you today?\" \n"
+									+ "You inform them of the situtation, making note that \"Even though there was a cop nearby (you), nobody stopped the thief!\""
+									+ "\"Wow, the cops here really are incompetent! May I have a name for your submission?\"\n"
+									+ "\"Anonymous\" you say with an evil grin.\n"
+									+ "\"OK!\" Sarah says. \"Let's hope the cops start doing their job soon.\"\n"
+									+ "\"Yeah\" you respond, hanging up. Feeling"
 									),
 							new Option(
-									"You're blind, you don't see nothing. You dial the number for your local Optometrist and continue on your way home.",
+									"You're blind, you don't see nothing. You dial the number for your local Optometrist and continue on your way.",
 									"home_end",
-									Arrays.asList("tag"),
+									Arrays.asList(),
 									Alignment.NeutralEvil,
 									Arrays.asList("lie"),
-									"result"
+									"*Click* \"Good afternoon, this is Optometryology, we help you see for a minimal fee! What can I do for you?\"\n"
+									+ "You respond, \"I would like to schedule an eye exam. I am having trouble caring about things lately.\"\n"
+									+ "\"Oh, the classic deflecting responsiblity by feigning blindess? We can't help you stop caring but we \n"
+									+ "can get you some nice prescription sunglasses, so you can roll your eyes without your superior getting wise.\"\n"
+									+ "\"That sounds great,\" you respond. \"Thanks. I will come in tomorrow.\"\n"
+									+ "\"Sounds great, 'see' you then!\"\n"
+									+ "You hang up the phone and head home."
 									)
 							)
 					),
 			new Scenario(
 					"home_end", 
-					"You come home and pass out.", 
+					"You arrive at your house. It is not much but it is a great place of relaxation, which you desperately needed. \n"
+					+ "Your husband/wife/kid(s)/dog/goldfish are happy that you're home!", 
+					null
+					),
+			new Scenario(
+					"home_news_end", 
+					"You get home and immediately turn your TV on to the XOF news channel. The headline today: \"Our cops suck! We need better ones!\"\n"
+					+ "The reporter covers an interview with the police Chief. \"I didn't even know this was happening until 2 minutes ago!\" the Chief explains.\n"
+					+ "\"How can we expect our cops to do a go job when the Chief doesn't know what is going on!?\" the reporter rhetorically asks."
+					+ "You laugh at the Chief's humiliation. That's what they get for firing you!", 
+					null
+					),
+			new Scenario(
+					"party_end_rehire", 
+					"Your favorite coworker takes you out for drinks to celebrate the world record for quickest suspension \n"
+					+ "reconsideration from the Chief ever! You then head home after a healthy and socially acceptable amount of drinking.\n"
+					+ "What a day!", 
 					null
 					),
 			new Scenario(
 					"party_end", 
-					"You party and pass out", 
+					"Your have a good time with your coworkers at the bar and head home after a healthy and socially acceptable amount of drinking.\n"
+					+ "What a day!", 
 					null
 					),
 			new Scenario(
 					"work_end", 
-					"You finish your work and pass out.", 
+					"You stay in the station late into the night, filing your files and stamping your documents. Your coworkers file out of the station \n"
+					+ "one by one until you are the only one remaining. You know that people have probably left food in the fridge that will go bad overnight,\n"
+					+ "but, being a good samaritan, you decide not to raid the fridge. The food is not yours after all. Your eyes are getting heaby, so heavy \n"
+					+ "that they have closed hours ago. You fall into a deep sleep at your desk.", 
 					null
 					),
 			new Scenario(
 					"home_ponder_end", 
-					"You come home, PONDER, and pass out.", 
+					"As you arrive home, you move to your couch and sit down. You begin pondering the meaning of life and the point of everything as \n"
+					+ "you stare past the eviction and rent passed due notices on your coffee table. You don't understand why you should need to pay them. \n"
+					+ "Nobody ever tells you when you ask...", 
 					null
 					),
 			new Scenario(
 					"work_raid_end", 
-					"You eat all the food in the work break room and pass out.", 
+					"You stay in the station, waiting for everyone to leave. As the last person exists the building your eyes lock onto the breakroom fridge. \n"
+					+ "Whatever is in there is yours now by right of conquest.\n"
+					+ "Sandwiches, cookies, someone even left behind some sushi! You feel a bit like a raccoon eating all this food, but you quickly get\n"
+					+ "over it. After all, the food is delicious! As the contents of the fridge wanes, so does your conciousness. You pass out at the break \n"
+					+ "room's lunch table, content with your feast.", 
 					null
 					),
 			new Scenario(
 					"arrested_end", 
-					"You are in your jailcell and pass out.", 
+					"This morning you were a cop, but a series of non-coplike descisions has lead you to the life of a prisoner. It smells bad here...", 
 					null
 					),
 			

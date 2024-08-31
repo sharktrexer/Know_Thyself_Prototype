@@ -1,3 +1,5 @@
+This file describes the different ways a story is constructed
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Scenarios~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Scenarios contains a description and different options for the user to make. 
 Sometimes the options are hidden unless a previous and specific option was chosen (determined by a tag string).
@@ -51,12 +53,13 @@ new Option(
 		Arrays.asList("required_tag_string1", "req_tag_string2", ... "req_tag_string_n"),
 		"direct_result_description_string"
 		),
+		
 			Used for transition scenarios that 
 			1) only serve as story and don't require user input 
-			2) Ditto but branch into different scenarios based on user choices
-			List can't be null otherwise compiler thinks (null, String) could also count as the first construtor.
-			Is detected as "transitional" by the controller through checking if their description_string == ""
+			2) Ditto but branch into different scenarios based on past user choices
+			isShown boolean is always set to false regardless of input, it is only a parameter to differentiate from the standard constructor
 new Option(
-		Arrays.asList("required_tag_string1", "req_tag_string2", ... "req_tag_string_n") OR Array.asList() if no required tags,
-		"scenario_pointer_string"
+		Arrays.asList("required_tag_string1", "req_tag_string2", ... "req_tag_string_n") OR null if no required tags,
+		"scenario_pointer_string",
+		isShown_boolean
 		),

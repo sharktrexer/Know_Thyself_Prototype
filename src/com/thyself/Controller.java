@@ -96,6 +96,13 @@ public class Controller {
 		try {
 			String line = in.readLine().strip();
 			
+			// For termination of program
+			if(line.equals("exit")) {
+				System.out.println("Shutting down...");
+				in.close();
+				System.exit(0);
+			}
+			
 			// No detection needed, input is only being used to continue
 			if(maxNum <= 0)
 				return -1;
@@ -110,7 +117,6 @@ public class Controller {
 						msg = "Received tags Debug Command";
 						break;
 					case "align":
-						//System.out.println(alignmentChart);
 						System.out.println(chart);
 						msg = "Received alignment Debug Command";
 						break;
@@ -169,21 +175,21 @@ public class Controller {
 				onlyTransition = false;
 				
 				// Print info
-				System.out.println(curScene.desc);
+				System.out.println(curScene.getDesc());
 				
 				// In case of null options
-				if(curScene.options != null) {
+				if(curScene.getOptions() != null) {
 					// Fetch options, and check if these are transition options
 					// there SHOULDN'T be any non-transitional options if the first option is
-					for(Option op : curScene.options) {
+					for(Option op : curScene.getOptions()) {
 						
 						// Transition options, one option is automatically selected, no list required
 						// Get option PointsID where conditions are met, or if there are not conditions
 						// Empty tags on transition option means this is the only option anyway
-						boolean conditionsMet = op.tagsRequired == null || DoesUserTagsContains(op.tagsRequired);
-						if(!op.isShown && conditionsMet) 
+						boolean conditionsMet = op.getTagsRequired() == null || DoesUserTagsContains(op.getTagsRequired());
+						if(!op.isShown() && conditionsMet) 
 						{
-							nextSceneID = op.pointsToID;
+							nextSceneID = op.getPointsToID();
 							onlyTransition = true;
 							break;
 						}
@@ -202,7 +208,7 @@ public class Controller {
 					// Print available options
 					for(Option op : availOptions) {
 						ind++;
-						System.out.println(ind + ". " + op.desc);
+						System.out.println(ind + ". " + op.getDesc());
 					}
 					
 					int input = -1;
@@ -215,16 +221,16 @@ public class Controller {
 					// Store chosen option and its values
 					chosenOp = availOptions.get(input);
 					
-					nextSceneID = chosenOp.pointsToID;
+					nextSceneID = chosenOp.getPointsToID();
 					
-					if(chosenOp.tags != null) 
-						AddTagsToUser(chosenOp.tags);
+					if(chosenOp.getTags() != null) 
+						AddTagsToUser(chosenOp.getTags());
 					
-					if(chosenOp.alignment != null)
-						IncrementAlignment(chosenOp.alignment); // If -1 is returned there is a problem!
+					if(chosenOp.getAlignment() != null)
+						IncrementAlignment(chosenOp.getAlignment()); // If -1 is returned there is a problem!
 					
-					if(chosenOp.resultDesc != "")
-						System.out.println("\n" + chosenOp.resultDesc + "\n");
+					if(chosenOp.getResultDesc() != "")
+						System.out.println("\n" + chosenOp.getResultDesc() + "\n");
 					
 				}
 				// User's choice has been determined already, this is a transition to the next scene
@@ -237,7 +243,7 @@ public class Controller {
 				int tempInd = index;
 				if(nextSceneID != "") {
 					for(int i = index; i < scenes.size(); i++) {
-						if(scenes.get(i).id == nextSceneID) {
+						if(scenes.get(i).getId() == nextSceneID) {
 							index = i;
 							break;
 						}
@@ -308,7 +314,10 @@ public class Controller {
 			}
 			System.out.print(msg);
 			
-			System.out.println("\n\nThank for playing! You may now enter anything to play again or close the terminal if you are done :)");
+			System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			
+			System.out.println("\nThanks for playing! :) "
+					+ "You may now enter anything to play again or if you are done: type \"exit\" or close the terminal.");
 			ValidatePlayerInput(in, 0);
 			
 			// Reset
