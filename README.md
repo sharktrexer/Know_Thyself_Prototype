@@ -8,7 +8,7 @@ By the end of the story your chosen actions will determine what alignment you fa
 User input will be fetched through terminal. Jar file provided.
 
 _Current Comment:_
-Almost here! Just need to finish story details, do a final round of polish, and create and upload a jar file.
+Almost here! Just need to add a tracker for obtaining different endings special choices, do a final round of polish, and create and upload a jar file.
 
 Webapp Version [HERE](https://github.com/sharktrexer/Know_Thyself)
 
