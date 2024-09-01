@@ -11,6 +11,9 @@ There are 40 different choices to make, 2 major branches of the story, 8 unique 
 You can also try and create your own story for the program to play through! Simply follow the formatting instructions in _Documents/Story_Code_Outline.txt_ and place all Scenario objects in a new static ArrayList<Scenario> in _ScenarioBuilder.java_.
 Then simply change line 27 in _Controller.java_ from "PlayScenario(ScenarioBuilder.copStory);" to "PlayScenario(ScenarioBuilder._yourListNameHere_);"
 
+### Instructions
+TBD. However, feel free to download all the .java files from src/com/thyself and run _Controller.java_ using [this tutorial](https://stackoverflow.com/questions/1279542/how-to-execute-a-java-class-from-the-command-line)
+
 ### v1.0 Desired Outcome:
 User input will be fetched through terminal to advance the story. Endings/secret options/alignments obtained are tracked. Jar file is provided.
 
