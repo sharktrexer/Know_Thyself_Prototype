@@ -81,6 +81,21 @@ Class Controller
 			
 		return -1
 		
+// These methods are only for easily getting a list of ending and tag string without having to do it manually. 
+	{
+		
+	public List<String> getEndings(List<Scenario> scenes)
+		starting at end of list-1, loop finding all scenario's with null options
+		store their string ids in a list
+		print list
+		
+	public List<String> getSecretOptions(List<Scenario> scenes)
+		loop through every scenario options list, checking for options that require tags and isShown == true. skip over tie breaker scenario
+		
+		print string required tags
+		
+		
+	}
 		
 	public void PlayScenario(List<Scenario> scenes)
 		int index  = 0
@@ -111,6 +126,9 @@ Class Controller
 			If option has alignment, call incrementAlignment
 			userCHoiceTags add optionTag
 			
+			if option had a required tag
+				add tag to achievTracker (2)
+			
 			if option has result, get option resultDesc to print. wait for user to continue
 		else
 			for each option in optionsList
@@ -125,6 +143,13 @@ Class Controller
 		if id cannot be found, 
 			check if index = the index of that scene
 		end loop
+		
+		add end result to achievTracker (1)
+		add alignment result to achievTracker (3)
+		
+		print gotten achievement ratios
+		
+	
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 Class AccomplishmentTracker
@@ -149,14 +174,14 @@ String List achievedAligns
 		
 		print You have chosen [ + achivedOptions.size + / + specialOptionTags.size + ] total secret options.
 		
-		if achivedOptions.size = specialOptionTags.size
+		if achievedOptions.size = specialOptionTags.size
 			print This means you have chosen every secret option. Well done!
 			
-	public void printObtainedOptionsRatio()
+	public void printObtainedAlignsRatio()
 		
 		print You have acted as [ + achivedAligns.size + / + 9 + ] total alignments.
 		
-		if achivedAligns.size == 9
+		if achievedAligns.size == 9
 			print This means you have acted as every different alignment. How well rounded of you!
 	
 	public void printAllObtainedAchivements() 
@@ -174,7 +199,7 @@ String List achievedAligns
 			print achievedAligns
 		
 	public void printPossibleAchievements()
-		print Possible Endins: + endings.values
+		print Possible Endings: + endings.values
 		print Possible Secret Options: + SpecialOptionTags.values
 		print Possible Alignments: + Controller.alignmentsFull
 	
@@ -212,7 +237,9 @@ Constructors:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 Class ScenarioBuilder
 
-	Contains all scenarios in a list for the controller to work off of.
+	Contains all scenarios in a list for the controller to work off of and associated achievo tags and achievo titles
+	
+	static AccomplishmentTracker copAchiev = (List endings, Array.AsLIst("You got home!", etc..), List options, Array.AsList("Bake sale enthusiast", etc...) )
 	
 	static List<Scenario> copStory = new Scenario( "1",
 		"You are a cop and witness Someone who finished jaywalking across a road. What do you do?",

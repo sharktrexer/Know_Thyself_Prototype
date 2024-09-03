@@ -313,21 +313,21 @@ public class ScenarioBuilder {
 							new Option(
 									"\"Sure, can't turn down a good time with the team!\"",
 									"party_end",  
-									Arrays.asList(),
+									null,
 									Alignment.NeutralGood,
 									"\"Haha\" the coworker chuckles, \"If you feel that way about it you're buying! See you at the bar.\""
 									),
 							new Option(
 									"\"As long as there is free booze involved, I'm in.\"",
 									"party_end", 
-									Arrays.asList(),
+									null,
 									Alignment.TrueNeutral,
 									"\"There will be!\" the coworker explains, \"Officer Billy got promoted today so he's buying us all a round!\""
 									),
 							new Option(
 									"\"Absolutely, the rookie can finish the rest of my paperwork.\"",
 									"party_end", 
-									Arrays.asList(),
+									null,
 									Alignment.LawfulEvil,
 									"You take your remaining paperwork and plop it on a rookie's desk. Already knee deep in paperwork, the rookie sighs. \n"
 									+ "You notice a small tear shed from their eye. That's not your problem though!"
@@ -335,7 +335,7 @@ public class ScenarioBuilder {
 							new Option(
 									"\"Damn right! I deserve a reward for busting that Jaywalker!\"",
 									"party_end", 
-									Arrays.asList(),
+									null,
 									Alignment.LawfulNeutral,
 									Arrays.asList("rewarded"),
 									"\"Well,\" the coworker responds, \"Well, Billy was able to bust a whole drug ring so he probably deserves it a little more... \n"
@@ -351,21 +351,21 @@ public class ScenarioBuilder {
 							new Option(
 									"\"No thanks, I'm staying late to finish up on my paperwork.\"",
 									"work_end", 
-									Arrays.asList(),
+									null,
 									Alignment.LawfulGood,
 									"\"Well,\" the coworker responds, \"If you are able to finish early, you know where to find us!\""
 									),
 							new Option(
 									"\"No, I have better things to do than party.\"",
 									"work_end", 
-									Arrays.asList(),
+									null,
 									Alignment.LawfulNeutral,
 									"\"Ok...\" the coworker continues, \"If you start getting vertigo way up there on your high horse, we'll be at the bar.\""
 									),
 							new Option(
 									"\"Hahahaha, you're serious? I am NOT drinking with you guys.\"",
 									"home_end", 
-									Arrays.asList(),
+									null,
 									Alignment.NeutralEvil,
 									"\"Well excuse me for asking.\" the officer says, taken aback. \"I know who's getting the lemon jelly donut tomorrow...\""
 									),
@@ -373,7 +373,7 @@ public class ScenarioBuilder {
 									"\"Nope, I just finished off my report regarding my rookie's incompetence today. "
 									+ "I'm going home early after a job well done! \"",
 									"home_end", 
-									Arrays.asList(),
+									null,
 									Alignment.LawfulEvil,
 									Arrays.asList("blame"),
 									"\"Alright,\" the coworker warns, \"Just be sure to check your coffee for spit tomorrow morning...\""
@@ -388,7 +388,7 @@ public class ScenarioBuilder {
 							new Option(
 									"\"Why wait until the bar?\" Pull out your \"water\" bottle and offer it.",
 									"party_end", 
-									Arrays.asList(),
+									null,
 									Alignment.ChaoticGood,
 									"\"Snagged that from evidence, did ya?\" the coworker smirks, \"Alright, you're driving though.\""
 									+ "They take a considerable gulp." 
@@ -396,21 +396,21 @@ public class ScenarioBuilder {
 							new Option(
 									"\"How about we go bust some kids for drug use by the movie theater?\"",
 									"party_end", 
-									Arrays.asList(),
+									null,
 									Alignment.ChaoticNeutral,
 									"\"I know which place you're talking about,\" the coworker begins, \"We can do that on the way.\""
 									),
 							new Option(
 									"\"I'm thinking of raiding the fridge after everyone leaves. You want in?\"",
 									"work_raid_end", 
-									Arrays.asList("raid"), 
+									null, 
 									Alignment.ChaoticEvil,
 									"\"I'm good.\" the coworker quickly answers. \"Just don't touch the ham and cheese sandwhich in the door. That one's mine.\""
 									),
 							new Option(
 									"\"Ok, but answer this question for me. Why would someone ever jaywalk with cops nearby?\"",
 									"home_ponder_end", 
-									Arrays.asList(),
+									null,
 									Alignment.TrueNeutral,
 									Arrays.asList("wonder"),
 									"\"I don't know hoss,\" the coworker says, befuddled. \"Sometimes people just do dumb stuff. "
@@ -427,7 +427,7 @@ public class ScenarioBuilder {
 							new Option(
 									"Shoot to warn.",
 									"party_end_rehire", 
-									Arrays.asList(), 
+									null, 
 									Alignment.ChaoticGood,
 									"As the thief runs out of the building you shoot the sidewalk besides them. "
 									+ "\"I don't miss twice!\" you shout, \"You better drop that dough!\" The thief puts his hands up. \n"
@@ -437,7 +437,7 @@ public class ScenarioBuilder {
 							new Option(
 									"Shoot to injure",
 									"home_end",
-									Arrays.asList(),
+									null,
 									Alignment.LawfulNeutral,
 									"Without warning you shoot the thief in the leg, making them collapse, \"OW!\" the thief yells \n"
 									+ "\"You could have told me to stop, I didn't know you had a gun!\" The money flies everywhere, \n"
@@ -447,7 +447,7 @@ public class ScenarioBuilder {
 							new Option(
 									"Shoot to kill",
 									"arrested_end",
-									Arrays.asList(),
+									null,
 									Alignment.LawfulEvil,
 									"You shoot the thief brutally. As they lay dying, they say \"I was just doing this... to feed my kids...\" \n"
 									+ "People are appalled yet grateful. Some of the cops from your station arrive and quickly put you in cuffs. \n"
@@ -457,7 +457,7 @@ public class ScenarioBuilder {
 							new Option(
 									"Shoot the money. Now it's a BIG deal.",
 									"home_end",
-									Arrays.asList(),
+									null,
 									Alignment.ChaoticNeutral,
 									Arrays.asList("no_big_deal"),
 									"The money flies everywhere, now shredded and useless. The thief won't be thieving anything anymore! \n"
@@ -475,7 +475,7 @@ public class ScenarioBuilder {
 									"Inform them how to best get away, bestowing your cop knowledge. "
 									+ "You're not a cop anymore so who cares?",
 									"home_end",
-									Arrays.asList(),
+									null,
 									Alignment.ChaoticNeutral,
 									"You approach the thief letting them know you have some information to share that could benefit them.\n"
 									+ "\"Wow\" the thief remarks, \"Thanks for the intel. Here, have some dough, my treat!\"\n"
@@ -484,7 +484,7 @@ public class ScenarioBuilder {
 							new Option(
 									"Heroically catch the thief! ",
 									"party_end_rehire",
-									Arrays.asList(),
+									null,
 									Alignment.LawfulGood,
 									"You trip the thief as they try passing you. After they fall you launch yourself on top of them to ensure they \n"
 									+ "can't wriggle away. \"Get off of me!\" the thief exclaims. \"You smell!\"\n"
@@ -496,7 +496,7 @@ public class ScenarioBuilder {
 							new Option(
 									"Incapacitate them and get away with pocketing some of the dough.",
 									"arrested_end",
-									Arrays.asList(),
+									null,
 									Alignment.NeutralEvil,
 									"You swiftly take down the thief with your cop powers and stuff your pockets with as much money as possible.\n"
 									+ "Unfortunately, due to your greed, you take slightly too long and the cops show up on the scene. \n"
@@ -507,7 +507,7 @@ public class ScenarioBuilder {
 							new Option(
 									"Converse with them. Surely they have a reason for doing this like that jaywalker could have.",
 									"home_ponder_end",
-									Arrays.asList(),
+									null,
 									Alignment.NeutralGood,
 									Arrays.asList("questioning"),
 									"You approach the thief, asking if you could have a word with them. The thief responds with a cordial fist in your face.\n"
@@ -527,7 +527,7 @@ public class ScenarioBuilder {
 							new Option(
 									"You don't want to risk your life, you already got suspended today.",
 									"home_end",
-									Arrays.asList(),
+									null,
 									Alignment.TrueNeutral,
 									"Whatever happens is none of your business after all. As you walk home you notice a lot of cops cars passing \n"
 									+ "by towards the scene. Glad they are not you!"
@@ -535,7 +535,7 @@ public class ScenarioBuilder {
 							new Option(
 									"Perhaps the thief will use that money better than the original owners would have.",
 									"home_end",
-									Arrays.asList(),
+									null,
 									Alignment.NeutralGood,
 									"You head home, finding a lucky $20 on the sidewalk on your way there! However the thief from earlier finds and stops you.\n"
 									+ "\"Hey!\" they shout. \"That's mine!\"\n"
@@ -545,7 +545,7 @@ public class ScenarioBuilder {
 							new Option(
 									"You can take the opportunity to call the news and report the incompetence of the police station that suspended you.",
 									"home_news_end",
-									Arrays.asList(),
+									null,
 									Alignment.ChaoticEvil,
 									"*Click!* \"Hello, this is Sarah from XOF news, what can we do for you today?\" \n"
 									+ "You inform them of the situtation, making note that \"Even though there was a cop nearby (you), nobody stopped the thief!\""
@@ -557,7 +557,7 @@ public class ScenarioBuilder {
 							new Option(
 									"You're blind, you don't see nothing. You dial the number for your local Optometrist and continue on your way.",
 									"home_end",
-									Arrays.asList(),
+									null,
 									Alignment.NeutralEvil,
 									Arrays.asList("lie"),
 									"*Click* \"Good afternoon, this is Optometryology, we help you see for a minimal fee! What can I do for you?\"\n"
@@ -638,7 +638,7 @@ public class ScenarioBuilder {
 							new Option(
 									"March into the office and defend your rookie.",
 									"",
-									Arrays.asList(),
+									null,
 									Alignment.LawfulGood,
 									Arrays.asList("tie_LG"),
 									"Your dream abruptly ends. You feel confident and content with your choice."
@@ -646,7 +646,7 @@ public class ScenarioBuilder {
 							new Option(
 									"Wait until after to console the rookie.",
 									"",
-									Arrays.asList(),
+									null,
 									Alignment.NeutralGood,
 									Arrays.asList("tie_NG"),
 									"Your dream abruptly ends. You feel content with your choice."
@@ -655,7 +655,7 @@ public class ScenarioBuilder {
 									"(Lie) Come into the office and tell the Chief that his kid needs an emergency pickup from school. \n\t"
 									+ "While the Chief tries handling that, escape with the rookie.",
 									"",
-									Arrays.asList(),
+									null,
 									Alignment.ChaoticGood,
 									Arrays.asList("tie_CG"),
 									"Your dream abruptly ends. You feel justified and content with your choice."
@@ -663,7 +663,7 @@ public class ScenarioBuilder {
 							new Option(
 									"Wait until after to warn rookie to be more careful next time.",
 									"",
-									Arrays.asList(),
+									null,
 									Alignment.LawfulNeutral,
 									Arrays.asList("tie_LN"),
 									"Your dream abruptly ends. You feel confident with your choice."
@@ -671,7 +671,7 @@ public class ScenarioBuilder {
 							new Option(
 									"Offer a weak smile and continue with your day. You think about how awkward it will be working with them tomorrow.",
 									"",
-									Arrays.asList(),
+									null,
 									Alignment.TrueNeutral,
 									Arrays.asList("tie_TN"),
 									"Your dream abruptly ends. You feel alright with your choice."
@@ -679,7 +679,7 @@ public class ScenarioBuilder {
 							new Option(
 									"You take advantage of the preoccupied Chief to get away with taking an early lunch.",
 									"",
-									Arrays.asList(),
+									null,
 									Alignment.ChaoticNeutral,
 									Arrays.asList("tie_CN"),
 									"Your dream abruptly ends. You feel justified with your choice."
@@ -687,7 +687,7 @@ public class ScenarioBuilder {
 							new Option(
 									"Enter the office and put in your two cents on what else the rookie failed to do.",
 									"",
-									Arrays.asList(),
+									null,
 									Alignment.LawfulEvil,
 									Arrays.asList("tie_LE"),
 									"Your dream abruptly ends. You feel confident and happy with your choice."
@@ -695,7 +695,7 @@ public class ScenarioBuilder {
 							new Option(
 									"Clearly mouth to the rookie: \"you're so going to get fired\" ",
 									"",
-									Arrays.asList(),
+									null,
 									Alignment.NeutralEvil,
 									Arrays.asList("tie_NE"),
 									"Your dream abruptly ends. You feel happy with your choice."
@@ -704,7 +704,7 @@ public class ScenarioBuilder {
 									"You take advantage of the rookie being scolded and pass a rumor around to your coworkers "
 									+ "that what he did was really embarrassing.",
 									"",
-									Arrays.asList(),
+									null,
 									Alignment.ChaoticEvil,
 									Arrays.asList("tie_CE"),
 									"Your dream abruptly ends. You feel justfied and happy with your choice."

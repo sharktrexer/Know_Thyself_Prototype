@@ -26,6 +26,28 @@ new Scenario(
 			"description_string", 
 			null
 			), 
+			
+			Tie breaker scenario, contains 9 options, each one representing one of the alignments.
+			Must be declared at the end of the scenario list and only appears if the user has the same amount of points for different alignments.
+			Id can be anything as the controller automatically considers the final scenario in the list to be a tie breaker.
+			Each option must have required tag equal to tie_align where align is equal to one of: 
+				"LG", "NG", "CG", "LN", "TN", "CN", "LE", "NE", "CE"
+				(these are 2 letter representations of each alignment)
+new Scenario(
+			"scenario_id_string", 
+			"description_string", 
+			Arrays.asList(
+					
+					new Option(
+							"desc",
+							""
+							Alignment.specific_align_here,
+							Arrays.asList("tie_specific_align"),
+							"result"
+							),
+					new etc... x8
+					)
+			), 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Options~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -39,8 +61,8 @@ new Option(
 new Option(
 		"description_string",
 		"scenario_pointer_string",
-		Arrays.asList("tag_string1", "tag_string2", ... "tag_string_n") OR null if no tags necessary,
-		"alignment_string",
+		Arrays.asList("tag_string1", "tag_string2", ... "tag_string_n") OR null if no tags desired,
+		Alignment.specific_align_here,
 		"direct_result_description_string"
 		),
 		
@@ -48,8 +70,8 @@ new Option(
 new Option(
 		"description_string",
 		"scenario_pointer_string",
-		Arrays.asList("tag_string1", "tag_string2", ... "tag_string_n") OR null if no tags necessary,
-		"alignment_string",
+		Arrays.asList("tag_string1", "tag_string2", ... "tag_string_n") OR null if no tags desired,
+		Alignment.specific_align_here,
 		Arrays.asList("required_tag_string1", "req_tag_string2", ... "req_tag_string_n"),
 		"direct_result_description_string"
 		),
