@@ -12,7 +12,7 @@ You can also try and create your own story for the program to play through! Simp
 Then simply change line 27 in _Controller.java_ from "PlayScenario(ScenarioBuilder.copStory);" to "PlayScenario(ScenarioBuilder._yourListNameHere_);"
 
 ### Instructions
-TBD. However, feel free to download all the .java files from src/com/thyself and run _Controller.java_ using [this tutorial](https://stackoverflow.com/questions/1279542/how-to-execute-a-java-class-from-the-command-line)
+TBD. However, feel free to download all the .java files from src/com/thyself and run _Controller.java_ using [this tutorial](https://www.freecodecamp.org/news/how-to-execute-and-run-java-code/)
 
 ### v1.0 Desired Outcome:
 User input will be fetched through terminal to advance the story. Endings/secret options/alignments obtained are tracked. Jar file is provided.
