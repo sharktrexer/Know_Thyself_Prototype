@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class AccomplishmentTracker {
 
-	ArrayList<Accomplishment> accomps = new ArrayList<Accomplishment>();
+	ArrayList<Accomplishment> endings = new ArrayList<Accomplishment>();
+	ArrayList<Accomplishment> secrets = new ArrayList<Accomplishment>();
+	
 	
 }
