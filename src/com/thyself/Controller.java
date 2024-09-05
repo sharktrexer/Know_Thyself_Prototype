@@ -23,6 +23,8 @@ public class Controller {
 			"Lawful Neutral", "True Neutral", "Chaotic Neutral", 
 			"Lawful Evil", "Neutral Evil", "Chaotic Evil" };
 	
+	
+	
 	// Launch point
 	public static void main(String[] args) {
 		// Game logic
@@ -143,6 +145,54 @@ public class Controller {
 			return -1;
 		}
 	}
+	
+	// These methods are only for easily getting a list of ending and tag string without having to do it manually. 
+		
+	public static List<String> getEndings(List<Scenario> scenes) {
+		List<String> ends = new ArrayList<String>();
+		
+		// Scenarios are endings when they have null options
+		for(int i = scenes.size() -1; i >= 0; i--) {
+			
+			if(scenes.get(i).getOptions() != null) {continue;}
+			
+			ends.add(scenes.get(i).getId());
+			
+		}
+		System.out.println(ends);
+		return ends;
+	}
+	
+	public static List<String> getSecretOptions(List<Scenario> scenes) {
+		List<String> ops = new ArrayList<String>();
+		
+		// Secret option tags are from options required tags list that are shown and aren't in the tie breaker
+		for(int i = 0; i < scenes.size() -2; i++) {
+			Scenario curScene = scenes.get(i);
+			
+			if(curScene.getOptions() == null) {continue;}
+				
+			for(Option o : curScene.getOptions()) {
+				
+				if(o.getTagsRequired() == null || !o.isShown()) {continue;}
+				
+				ops.addAll(o.getTagsRequired());
+			}
+		}
+		System.out.println(ops);
+		return ops;
+	}
+	
+	/*
+	 *
+	 * 
+	 * public List<String> getSecretOptions(List<Scenario> scenes) loop through
+	 * every scenario options list, checking for options that require tags and
+	 * isShown == true. skip over tie breaker scenario
+	 * 
+	 * print string required tags
+	 */
+		
 	
 	private static void PlayScenario(List<Scenario> scenes) {
 		
