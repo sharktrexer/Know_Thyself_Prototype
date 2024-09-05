@@ -1,13 +1,17 @@
 package com.thyself;
 
-//achieveType = 1 means it is an ending, 2 means it is an option, 3 means alignment
+//achieveType = 1 means it is an ending, 2 means it is an option
 public record Accomplishment(String id, String title, int type) {
 	
 	public Accomplishment {
-        if (type <= 0 || type >= 4) {
+        if (type <= 0 || type >= 3) {
             throw new java.lang.IllegalArgumentException(
-                String.format("Invalid type: %d", type));
+                String.format("Invalid Accomplishment type: %d", type));
         }
     }
+	
+	public String toString() {
+		return title;
+	}
 	
 }
