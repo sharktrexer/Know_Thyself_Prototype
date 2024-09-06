@@ -1,5 +1,7 @@
 package com.thyself;
 
+import java.util.Objects;
+
 //achieveType = 1 means it is an ending, 2 means it is an option
 public record Accomplishment(String id, String title, int type) {
 	
@@ -10,6 +12,7 @@ public record Accomplishment(String id, String title, int type) {
         }
     }
 	
+	@Override
 	public String toString() {
 		return title;
 	}

@@ -601,7 +601,7 @@ public class ScenarioBuilder {
 					"work_end", 
 					"You stay in the station late into the night, filing your files and stamping your documents. Your coworkers file out of the station \n"
 					+ "one by one until you are the only one remaining. You know that people have probably left food in the fridge that will go bad overnight,\n"
-					+ "but, being a good samaritan, you decide not to raid the fridge. The food is not yours after all. Your eyes are getting heaby, so heavy \n"
+					+ "but, being a good samaritan, you decide not to raid the fridge. The food is not yours after all. Your eyes are getting heavy, so heavy \n"
 					+ "that they have closed hours ago. You fall into a deep sleep at your desk.", 
 					null
 					),

@@ -1,7 +1,9 @@
 This file describes the different ways a story is constructed
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Scenarios~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Scenarios contains a description and different options for the user to make. 
+All are defined in a list in ScenarioBuilder.java
 Sometimes the options are hidden unless a previous and specific option was chosen (determined by a tag string).
 Sometimes the options aren't displayed and only used to push the user to the next scenario, which could be conditional.
 The end scenario will have null options. Where else is there to go?
@@ -85,3 +87,15 @@ new Option(
 		"scenario_pointer_string",
 		isShown_boolean
 		),
+		
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Accomplishments~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+AKA Achievements. If you want to reward the player for getting certain endings or choosing a secret option that only appeared when they 
+chose an option with a specific tag, this is where it happens.
+
+Similarly to the ScenarioBuilder, an AccomplishmentBuilder exists with a list of Accomplisments and can be populated as such:
+
+	new Accomplishment ("ending_tage_string" OR "secret_option_tag_string", "title_string", accomplishment_type_int)
+
+There are two types: 1 for endings, 2 for secret options. Using any other number will result in an Exception being thrown. You can get these tags from your
+story either through manual means, or using Controller helper methods like getEndings() and getSecretOptions()

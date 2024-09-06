@@ -28,7 +28,8 @@ public class Controller {
 	// Launch point
 	public static void main(String[] args) {
 		// Game logic
-		PlayScenario(ScenarioBuilder.copStory);
+		AccomplishmentTracker tracker = new AccomplishmentTracker(AccomplishmentBuilder.copStoryAccomps);
+		PlayScenario(ScenarioBuilder.copStory, tracker);
 	}
 	
 	/* Uses int value of Alignment enum to increment chart score.
@@ -194,13 +195,15 @@ public class Controller {
 	 */
 		
 	
-	private static void PlayScenario(List<Scenario> scenes) {
+	private static void PlayScenario(List<Scenario> scenes, AccomplishmentTracker accomps) {
 		
 		while(true) {
 			// Game vars
 			boolean end = false;
+			String endingId = "";
 			int index   = 0;
 			BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+			
 			
 			
 			// Introduction
@@ -278,7 +281,7 @@ public class Controller {
 					nextSceneID = chosenOp.getPointsToID();
 					
 					if(chosenOp.getTagsRequired() != null) {
-						
+						accomps.addAchievement(chosenOp.getTagsRequired().get(0));
 					}
 					
 					if(chosenOp.getTags() != null) 
@@ -317,10 +320,10 @@ public class Controller {
 	
 				// End if the index did not change
 				end = tempInd == index;
+				endingId = curScene.getId();
 			}
 			
-			// Who cares if this throws an error! 
-			//try { in.close(); } catch (IOException e) {}
+			accomps.addAchievement(endingId);
 			
 			System.out.println("Story ended!\n");
 			
@@ -339,6 +342,7 @@ public class Controller {
 			// Print alignment and short descriptor
 			String playerAlign = alignmentsFull[indexOfMaxAlign];
 			String msg = "";
+			accomps.addAlignment(playerAlign);
 			
 			System.out.print(playerAlign + ". This means you ");
 			
@@ -371,11 +375,16 @@ public class Controller {
 				msg = "believe you can get away with anything you want, when you want.";
 				break;
 			}
-			System.out.print(msg);
+			System.out.print(msg + "\n\nEnter anything to see your accomplishments.\n");
 			
-			//System.out.println("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			ValidatePlayerInput(in, 0);
 			
-			System.out.println("\n\nThanks for playing! :) "
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~Results~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n");
+			
+			accomps.printAllObtainedAchievements();
+			accomps.printAllRatios();
+			
+			System.out.println("\nThanks for playing! :) "
 					+ "You may now enter anything to play again or if you are done: type \"exit\" or close the terminal.");
 			ValidatePlayerInput(in, 0);
 			

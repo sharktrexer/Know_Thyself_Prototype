@@ -12,18 +12,21 @@ public class AccomplishmentTracker {
 	ArrayList<String> achievedAligns = new ArrayList<String>();
 	
 	
-	public AccomplishmentTracker(ArrayList<Accomplishment> endings, ArrayList<Accomplishment> secrets) {
-		this.endings = endings;
-		this.secrets = secrets;
+	public AccomplishmentTracker(ArrayList<Accomplishment> accomps) {
+		for(Accomplishment a : accomps) {
+			if(a.type() == 1) endings.add(a);
+			if(a.type() == 2) secrets.add(a);
+		}
 	}
 
-	
-	// achieveType = 1 means it is an ending, 2 means it is an option, 3 means alignment	
-	public void addAchievement(Accomplishment a) {
-		if(a.type() == 1 && !achievedEndings.contains(a) ) {
+	public void addAchievement(String id) {
+		
+		for(Accomplishment a : endings) {
+			if(a.id() != id) {continue;}
 			achievedEndings.add(a);
 		}
-		else if(a.type() == 2 && !achievedOptions.contains(a) ) {
+		for(Accomplishment a : secrets) {
+			if(a.id() != id) {continue;}
 			achievedOptions.add(a);
 		}
 	
@@ -60,7 +63,13 @@ public class AccomplishmentTracker {
 		System.out.print("]\n\n");
 	}	
 	
-	public void printObtainedEndingsRatio() {
+	public void printAllRatios() {
+		printObtainedEndingsRatio();
+		printObtainedSecretsRatio();
+		printObtainedAlignsRatio();
+	}
+	
+	void printObtainedEndingsRatio() {
 		
 		System.out.println("You have seen [" + achievedEndings.size() + "/" + endings.size() + "] total endings.");
 		
@@ -69,7 +78,7 @@ public class AccomplishmentTracker {
 		}
 	}
 	
-	public void printObtainedSecretsRatio() {
+	void printObtainedSecretsRatio() {
 		
 		System.out.println("You have chosen [" + achievedOptions.size() + "/" + secrets.size() + "] total secret options.");
 		
@@ -78,7 +87,7 @@ public class AccomplishmentTracker {
 		}
 	}
 	
-	public void printObtainedAlignsRatio() {
+	void printObtainedAlignsRatio() {
 		
 		System.out.println("You have acted as [" + achievedAligns.size() + "/9] total alignments.");
 		
