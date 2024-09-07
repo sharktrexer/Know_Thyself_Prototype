@@ -18,7 +18,7 @@ TBD. However, feel free to download all the .java files from src/com/thyself and
 User input will be fetched through terminal to advance the story. Endings/secret options/alignments obtained are tracked. Jar file is provided.
 
 _Current Comment:_
-Just need to add a tracker for obtaining different endings/special choices, do a final round of polish, and create and upload a jar file.
+Just need to do a final round of polish, and create and upload a jar file.
 
 In Developement Webapp Version [HERE](https://github.com/sharktrexer/Know_Thyself)
 
@@ -27,4 +27,6 @@ In Developement Webapp Version [HERE](https://github.com/sharktrexer/Know_Thysel
 ![terminal 1](https://github.com/user-attachments/assets/e16caf2b-c6b7-4ea1-8e65-46649d4f7068)
 ![terminal 2](https://github.com/user-attachments/assets/4ae42631-749f-4d42-8555-dbc1ee33d170)
 ### After completing the story:
-![terminal 3](https://github.com/user-attachments/assets/f1db5472-4729-4df9-9e61-301890bf8d57)
+
+![terminal 3](https://github.com/user-attachments/assets/cb0ebc90-8065-4201-8420-2ce87db034d0)
+![achievements](https://github.com/user-attachments/assets/99f4d5ec-3c30-4498-8c6c-abed65ba985a)
