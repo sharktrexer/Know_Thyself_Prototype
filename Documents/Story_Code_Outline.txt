@@ -93,9 +93,13 @@ new Option(
 AKA Achievements. If you want to reward the player for getting certain endings or choosing a secret option that only appeared when they 
 chose an option with a specific tag, this is where it happens.
 
-Similarly to the ScenarioBuilder, an AccomplishmentBuilder exists with a list of Accomplisments and can be populated as such:
+Similarly to the ScenarioBuilder, an AccomplishmentBuilder exists with a list of Accomplisment and can be populated as such:
 
-	new Accomplishment ("ending_tage_string" OR "secret_option_tag_string", "title_string", accomplishment_type_int)
+	new Accomplishment ("ending_tag_string" OR "secret_option_tag_string", "title_string", accomplishment_type_int)
+	
+	The ending_tag_string and secret_option_tag_string can be found by calling Controller's getEndings() nd getSecretOptions() methods.
+	The controller will automatically print all scenario ids that are endings (any scenario that has null options) and
+	all string tags from shown Options that are in their tagsRequired string list.
+	The title_string is the only way to customize your accomplishment, by simply awarding a fun title to see :)
+	accomplishment_type_int can only equal 1 or 2. Using any other number will result in an Exception being thrown. 1 signifies ending, 2 signifies secret option.
 
-There are two types: 1 for endings, 2 for secret options. Using any other number will result in an Exception being thrown. You can get these tags from your
-story either through manual means, or using Controller helper methods like getEndings() and getSecretOptions()

@@ -8,6 +8,10 @@ import java.util.List;
 
 public class Controller {
 	
+	// Story Vars
+	final static AccomplishmentTracker TRACKER = new AccomplishmentTracker(AccomplishmentBuilder.copStoryAccomps);
+	final static List<Scenario> STORY_SCENES = ScenarioBuilder.copStory;
+	
 	// Keeps track of the choices made and scenarios experienced
 	static List<String> userTags = new ArrayList<String>();
 			
@@ -28,8 +32,7 @@ public class Controller {
 	// Launch point
 	public static void main(String[] args) {
 		// Game logic
-		AccomplishmentTracker tracker = new AccomplishmentTracker(AccomplishmentBuilder.copStoryAccomps);
-		PlayScenario(ScenarioBuilder.copStory, tracker);
+		PlayScenario(STORY_SCENES, TRACKER);
 	}
 	
 	/* Uses int value of Alignment enum to increment chart score.
