@@ -7,20 +7,21 @@ By the end of the story your chosen actions will determine what alignment you fa
 ### Content
 There are 40 different choices to make, 2 major branches of the story, 8 unique endings to see, 9 secret choices to find, and 9 alignments to act as. Try your best to see if you can experience it all!
 
-### Editable
-You can also try and create your own story for the program to play through! Simply follow the formatting instructions in _Documents/Story_Code_Outline.txt_ and place all Scenario objects in a new static ArrayList<Scenario> in _ScenarioBuilder.java_.
-Then simply change line 27 in _Controller.java_ from "PlayScenario(ScenarioBuilder.copStory);" to "PlayScenario(ScenarioBuilder._yourListNameHere_);"
+I'm alos attempting to port this over to an in-developement web app to learn Spring Boot & Thymeleaf [HERE](https://github.com/sharktrexer/Know_Thyself)
 
 ### Instructions
-TBD. However, feel free to download all the .java files from src/com/thyself and run _Controller.java_ using [this tutorial](https://www.freecodecamp.org/news/how-to-execute-and-run-java-code/)
+1. Have the latest version of the [Java SDK](https://www.oracle.com/java/technologies/downloads/#jdk22-windows) installed.
+2. Download __Know_Thyself.jar__ and place in an appropriate directory/folder.
+3. Open a command prompt and change directory to the download location.
+4. Enter "java -jar Know_Thyself.jar"
+5. Enjoy!
 
-### v1.0 Desired Outcome:
-User input will be fetched through terminal to advance the story. Endings/secret options/alignments obtained are tracked. Jar file is provided.
+### Editable
+You can also try and create your own story for the program to play through! Simply follow the formatting instructions in _Documents/Story_Code_Outline.txt_ and place all Scenario objects in a new static ArrayList<Scenario> in _ScenarioBuilder.java_.
+Then simply go to Controller.java change the story variable **STORY_SCENES** = "ScenarioBuilder.copStory;" to "ScenarioBuilder._yourListNameHere_;"
 
-_Current Comment:_
-Just need to do a final round of polish, and create and upload a jar file.
-
-In Developement Webapp Version [HERE](https://github.com/sharktrexer/Know_Thyself)
+You can similary find instructions in the aforementioned text file to create your own accomplishments to earn from your story.
+In Controller.java change the story variable **TRACKER** = "new AccomplishmentTracker(AccomplishmentBuilder.copStoryAccomps);" to "new AccomplishmentTracker(AccomplishmentBuilder._yourAccomplishmentListNameHere_);"
 
 ### Current example of using the software:
 
