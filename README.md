@@ -13,15 +13,11 @@ I'm also attempting to port this over to an in-developement web app to learn Spr
 1. Have the latest version of the [Java SDK](https://www.oracle.com/java/technologies/downloads/#jdk22-windows) installed.
 2. Download __Know_Thyself.jar__ and place in an appropriate directory/folder.
 3. Open a command prompt and change directory to the download location.
-4. Enter "java -jar Know_Thyself.jar"
+4. Run the project using:
+
+    `java -jar Know_Thyself.jar`
+   
 5. Enjoy!
-
-### Editable
-You can also try and create your own story for the program to play through! Simply follow the formatting instructions in _Documents/Story_Code_Outline.txt_ and place all Scenario objects in a new static ArrayList<Scenario> in _ScenarioBuilder.java_.
-Then simply go to Controller.java change the story variable **STORY_SCENES** = "ScenarioBuilder.copStory;" to "ScenarioBuilder._yourListNameHere_;"
-
-You can similary find instructions in the aforementioned text file to create your own accomplishments to earn from your story.
-In Controller.java change the story variable **TRACKER** = "new AccomplishmentTracker(AccomplishmentBuilder.copStoryAccomps);" to "new AccomplishmentTracker(AccomplishmentBuilder._yourAccomplishmentListNameHere_);"
 
 ### Current example of using the software:
 
@@ -31,6 +27,25 @@ In Controller.java change the story variable **TRACKER** = "new AccomplishmentTr
 
 ![terminal 3](https://github.com/user-attachments/assets/cb0ebc90-8065-4201-8420-2ce87db034d0)
 ![achievements](https://github.com/user-attachments/assets/99f4d5ec-3c30-4498-8c6c-abed65ba985a)
+
+### Editable
+You can also try and create your own story for the program to play through! Simply follow the formatting instructions in _Documents/Story_Code_Outline.txt_ and place all Scenario objects in a new static ArrayList<Scenario> in _ScenarioBuilder.java_.
+Then simply go to Controller.java change the story variable from
+
+`STORY_SCENES = ScenarioBuilder.copStory;` 
+
+to
+
+`STORY_SCENES = ScenarioBuilder.yourListNameHere;`
+
+You can similarly find instructions in the aforementioned text file to create your own accomplishments to earn from your story.
+In Controller.java change the story variable from 
+
+`TRACKER = new AccomplishmentTracker(AccomplishmentBuilder.copStoryAccomps);` 
+
+to 
+
+`TRACKER = new AccomplishmentTracker(AccomplishmentBuilder.yourAccomplishmentListNameHere);`
 
 ### Credits
 - Programming by me, Ibrahim Sydock
