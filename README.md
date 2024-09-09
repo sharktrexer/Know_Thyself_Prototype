@@ -7,7 +7,7 @@ By the end of the story your chosen actions will determine what alignment you fa
 ### Content
 There are 40 different choices to make, 2 major branches of the story, 8 unique endings to see, 9 secret choices to find, and 9 alignments to act as. Try your best to see if you can experience it all!
 
-I'm alos attempting to port this over to an in-developement web app to learn Spring Boot & Thymeleaf [HERE](https://github.com/sharktrexer/Know_Thyself)
+I'm also attempting to port this over to an in-developement web app to learn Spring Boot & Thymeleaf [HERE](https://github.com/sharktrexer/Know_Thyself)
 
 ### Instructions
 1. Have the latest version of the [Java SDK](https://www.oracle.com/java/technologies/downloads/#jdk22-windows) installed.
@@ -31,3 +31,7 @@ In Controller.java change the story variable **TRACKER** = "new AccomplishmentTr
 
 ![terminal 3](https://github.com/user-attachments/assets/cb0ebc90-8065-4201-8420-2ce87db034d0)
 ![achievements](https://github.com/user-attachments/assets/99f4d5ec-3c30-4498-8c6c-abed65ba985a)
+
+### Credits
+- Programming by me, Ibrahim Sydock
+- Story Writing by Zayne Wilkinson
